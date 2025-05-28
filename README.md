@@ -21,24 +21,24 @@ This layers designed to maintain structure as it scales and organized by levels.
 └── <b> contracts/, drivers/ </b> - <i> interfaces for external systems </i>  
 └── <b> helpers/, _[config/](src/config/README.md), _[entities/](src/entities/README.md) </b> - <i> the lowest level or independent layers </i>
 
-## 📦 Installation
+## Installation
 
 ```bash
-npm install
+npm ci
 ```
 
-## ⚙️ Environment Variables
+## Environment Variables
 
 Create a `.env` file with the following content:
 
 ```env
 RPC_URL=https://mainnet.infura.io/v3/<your-project-id>
-MULTICALL_ADDRESS=0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696
+MULTICALL_ADDRESS=0xcA11bde05977b3631167028862bE2a173976CA11
 ```
 
-> ⚠️ This example uses Ethereum Mainnet and Multicall v3 address.
+> This example uses Ethereum Mainnet and Multicall v3 address.
 
-## 🚀 Run the Application
+## Run the Application
 
 ```bash
 npm run start
@@ -58,7 +58,7 @@ The application will be available at `http://localhost:3000`.
 }
 ```
 
-## 📘 Example Request
+## Example Request
 
 **GET** `/token/:address`
 
