@@ -1,29 +1,55 @@
-# Nest Template
+# Token Info API (NestJS)
 
-## Quickstart
-1. Create `.env` file and fill with the "REQUIRED" variables from `.env.xmpl`
-2. `npm ci`
-3. `npm run start`
+A simple NestJS API for retrieving token information by its Ethereum address using Multicall.
 
 ## Suggested Project Layers
+
 <b> As long as the application is small, there's no need to add extra layers.</b></br>
 <b> However, if necessary, it is recommended to choose from the list below. </b>
 
-These layers are designed to maintain structure as it scales and organized by levels.  
-* By convention, higher-level layers must not be imported into lower-level ones.  
-* Additionally, layers on the same level should not import each other.
+This layers designed to maintain structure as it scales and organized by levels.
 
-\*  Exists by default
+- By convention, higher-level layers must not be imported into lower-level ones.
+- Additionally, layers on the same level should not import each other.
 
-└── <b> *[apis/](src/apis/README.md) </b> - <i> contain controllers, dtos </i>  
+\* Exists by default
+
+└── <b> _[apis/](src/apis/README.md) </b> - <i> contain controllers, dtos </i>  
 └── <b> features/ </b> - <i> contain specific feature logic </i>  
-└── <b> *[services/](src/services/README.md) </b> - <i> contain general processing logic </i>  
+└── <b> _[services/](src/services/README.md) </b> - <i> contain general processing logic </i>  
 └── <b> stores/ </b> - <i> Repository pattern implementation - api for stores (e.g. DB) </i>  
 └── <b> contracts/, drivers/ </b> - <i> interfaces for external systems </i>  
-└── <b> helpers/, *[config/](src/config/README.md), *[entities/](src/entities/README.md) </b> - <i> the lowest level or independent layers </i>
+└── <b> helpers/, _[config/](src/config/README.md), _[entities/](src/entities/README.md) </b> - <i> the lowest level or independent layers </i>
+
+## 📦 Installation
+
+```bash
+npm install
+```
+
+## ⚙️ Environment Variables
+
+Create a `.env` file with the following content:
+
+```env
+RPC_URL=https://mainnet.infura.io/v3/<your-project-id>
+MULTICALL_ADDRESS=0x5BA1e12693Dc8F9c48aAD8770482f4739bEeD696
+```
+
+> ⚠️ This example uses Ethereum Mainnet and Multicall v3 address.
+
+## 🚀 Run the Application
+
+```bash
+npm run start
+```
+
+The application will be available at `http://localhost:3000`.
 
 ## Healthcheck
+
 `/health`
+
 ```
 {
   "status": "OK",
@@ -32,5 +58,23 @@ These layers are designed to maintain structure as it scales and organized by le
 }
 ```
 
-## Swagger
-`/swagger`
+## 📘 Example Request
+
+**GET** `/token/:address`
+
+### Example:
+
+```
+GET http://localhost:3000/token/0xdac17f958d2ee523a2206206994597c13d831ec7
+```
+
+### Response:
+
+```json
+{
+  "tokenAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
+  "symbol": "USDT",
+  "name": "Tether USD",
+  "decimals": 6
+}
+```
