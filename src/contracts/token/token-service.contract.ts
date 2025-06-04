@@ -1,3 +1,5 @@
+import { Chain } from '@/entities/chain';
+
 export const TOKEN_SERVICE = 'TOKEN_SERVICE';
 
 export type TokenData = {
@@ -5,6 +7,7 @@ export type TokenData = {
   symbol: string;
   name: string;
   decimals: number;
+  chain: Chain;
 };
 
 export interface ITokenService {

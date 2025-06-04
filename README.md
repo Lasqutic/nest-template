@@ -32,8 +32,12 @@ npm ci
 Create a `.env` file with the following content:
 
 ```env
-RPC_URL=https://mainnet.infura.io/v3/<your-project-id>
-MULTICALL_ADDRESS=0xcA11bde05977b3631167028862bE2a173976CA11
+# REQUIRED
+MULTICALL_ADDRESS="0xcA11bde05977b3631167028862bE2a173976CA11"
+# RPC URLs
+RPC_ETHEREUM="https://mainnet.infura.io/v3/<your-project-id>"
+RPC_POLYGON="https://polygon-mainnet.infura.io/v3/<your-project-id>"
+RPC_BINANCE="https://bsc-dataseed.binance.org/"
 ```
 
 > This example uses Ethereum Mainnet and Multicall v3 address.
@@ -66,6 +70,8 @@ The application will be available at `http://localhost:3000`.
 
 ```
 GET http://localhost:3000/token/0xdac17f958d2ee523a2206206994597c13d831ec7
+GET http://localhost:3000/token/0x3553f861dEc0257baDA9F8Ed268bf0D74e45E89C
+GET http://localhost:3000/token/0x524bC91Dc82d6b90EF29F76A3ECAaBAffFD490Bc
 ```
 
 ### Response:
@@ -75,6 +81,27 @@ GET http://localhost:3000/token/0xdac17f958d2ee523a2206206994597c13d831ec7
   "tokenAddress": "0xdac17f958d2ee523a2206206994597c13d831ec7",
   "symbol": "USDT",
   "name": "Tether USD",
-  "decimals": 6
+  "decimals": 6,
+  "chain": "ethereum"
+}
+```
+
+```json
+{
+  "tokenAddress": "0x3553f861dEc0257baDA9F8Ed268bf0D74e45E89C",
+  "symbol": "USDT",
+  "name": "USDT",
+  "decimals": 6,
+  "chain": "polyon"
+}
+```
+
+```json
+{
+  "tokenAddress": "0x524bC91Dc82d6b90EF29F76A3ECAaBAffFD490Bc",
+  "symbol": "USDT",
+  "name": "Tether USD",
+  "decimals": 6,
+  "chain": "binance"
 }
 ```

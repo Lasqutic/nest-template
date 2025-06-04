@@ -3,13 +3,13 @@ import { ConfigService } from '@nestjs/config';
 import { TokenService } from '@/services/token/token.service';
 import * as ethers from 'ethers';
 import { Interface } from 'ethers';
-import { SHORT_ERC20_ABI } from '@/abis/shortErc20Abi';
+import { shortErc20Abi } from '@/abis/shortErc20.abi';
 import { TokenData } from '@/contracts/token/token-service.contract';
 
 describe('TokenService', () => {
   let service: TokenService;
   let config: Partial<ConfigService>;
-  const erc20Interface = new Interface(SHORT_ERC20_ABI);
+  const erc20Interface = new Interface(shortErc20Abi);
 
   beforeEach(async () => {
     config = {
