@@ -1,5 +1,5 @@
 export enum Chain {
   Ethereum = 'ethereum',
   Binance = 'binance',
-  Polygon = 'polyon',
+  Polygon = 'polygon',
 }
