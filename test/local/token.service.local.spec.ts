@@ -56,14 +56,14 @@ describe('TokenService Local', () => {
     );
   });
 
-  it('should fetch USDT token data from Ethereum mainnet', async () => {
-    const tokenAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'; // local token addres
+  it('should fetch Local token data from local net', async () => {
+    const tokenAddress = '0x9fE46736679d2D9a65F0992F2272dE9f3c7fa6e0'; // local token address
     const data = await service.fetchTokenData(tokenAddress);
 
     expect(data.tokenAddress).toBe(tokenAddress);
     expect(data.symbol).toBe('MTK');
     expect(data.name).toBe('MyToken');
     expect(data.decimals).toBe(18);
-    expect(data.chain).toBe(Chain.Ethereum || Chain.Polygon || Chain.Binance);
-  }, 10000);
+    expect(data.chain).toBe(Chain.Local);
+  }, 1000);
 });
